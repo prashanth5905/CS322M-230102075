@@ -15,13 +15,9 @@ States:
 - three (11): Detected '110'
 
 Transitions:
-init --1--> one --1--> two --0--> three --1/y=1--> one
-  |          |         |           |
-  0          0         1           0
-  |          |         |           |
-  v          v         v           v
-init <---- init      two        init
-```
+![State Diagram](https://github.com/prashanth5905/CS322M-230102075/blob/main/LAB2/fsm-assignments/problem1_seqdet/state%20diagram.jpg?raw=true)
+
+``
 
 ### Module Interface
 ```verilog
@@ -41,12 +37,12 @@ module seq_detect_mealy(
 
 ### Step 1: Compile
 ```bash
-iverilog -o seq_detect_sim seq_detect_mealy.v tb_seq_detect_mealy.v
+iverilog -o sim seq_detect_mealy.v tb_seq_detect_mealy.v
 ```
 
 ### Step 2: Run Simulation
 ```bash
-vvp seq_detect_sim
+vvp sim
 ```
 
 ### Step 3: Visualize Waveforms
@@ -114,13 +110,8 @@ Time    clk rst din y
 - **Reset Duration**: 15ns (1.5 clock cycles)
 
 ## Verification Notes
-- The design has been verified with the provided testbench
+- The design has been verified with the testbench
 - All three expected pulse outputs are correctly generated
 - State transitions follow the designed FSM behavior
 - Overlap handling works as intended
 
-## Design Considerations
-- **Resource Usage**: 2 flip-flops for state encoding, minimal combinational logic
-- **Timing**: All logic is registered to avoid timing violations
-- **Scalability**: Easy to modify for different sequence patterns
-- **Testability**: Clear state encoding aids debugging

@@ -43,15 +43,9 @@ The protocol follows these steps for each byte transfer:
 - *WAIT_ACK_LOW (10)*: Waits for ack to go low before next transfer
 - *DONE_STATE (11)*: Asserts done signal for one cycle
 
-### State Transitions
+### State Diagram
 
-
-IDLE → WAIT_ACK: Always (start transfer)
-WAIT_ACK → WAIT_ACK_LOW: When ack=1
-WAIT_ACK_LOW → WAIT_ACK: When ack=0 and more bytes to send
-WAIT_ACK_LOW → DONE_STATE: When ack=0 and all bytes sent
-DONE_STATE → IDLE: Always (one cycle pulse)
-
+![State Diagram](https://github.com/prashanth5905/CS322M-230102075/blob/main/LAB2/fsm-assignments/problem1_seqdet/state%20diagram.jpg?raw=true)
 
 ### Memory Contents
 

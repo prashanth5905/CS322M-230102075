@@ -84,6 +84,7 @@ At the start of every clock cycle, outputs are reset to 0
 
 ### State Diagram
 
+![State Diagram](https://github.com/prashanth5905/CS322M-230102075/blob/main/LAB2/fsm-assignments/problem3_vending/state%20diagram.jpg?raw=true)
 
 
 
@@ -148,14 +149,6 @@ Based on testbench scenarios:
 - Change pulses: Generated only for overpayment scenarios (total = 25)
 - State consistency: FSM returns to idle after each successful transaction
 
-
-## Files Structure
-
-- vending_mealy.v - Main FSM module implementation
-- tb_vending_mealy.v - Comprehensive testbench
-- dump.vcd - Generated waveform file
-
-
 ## Compile/Run/Visualize Steps
 
 ### Prerequisites
@@ -163,31 +156,15 @@ Based on testbench scenarios:
 - GTKWave (for waveform visualization)
 
 ### Step 1: Compile
-bash
-iverilog -o vending_sim vending_mealy.v tb_vending_mealy.v
-
-
+iverilog -o sim vending_mealy.v tb_vending_mealy.v
 
 ### Step 2: Run Simulation
-bash
-vvp vending_sim
-
-
+vvp sim
 
 ### Step 3: Visualize Waveforms
-bash
-gtkwave tb_vending_mealy.vcd
-
-
+gtkwave dump.vcd
 
 #### In GTKWave:
 - Add signals: clk, rst, coin[1:0], dispense, chg5
 - Add internal signals: state_present[1:0], state_next[1:0] for debugging
 - Set time scale and observe the transaction patterns
-
-## Design Considerations
-
-### Hardware Efficiency
-- Resource Usage: 2 flip-flops for state, minimal combinational logic
-- Power Consumption: Low switching activity in idle state
-- Area Optimization: Compact state encoding

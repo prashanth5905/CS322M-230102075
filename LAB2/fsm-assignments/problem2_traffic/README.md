@@ -119,16 +119,6 @@ In GTKWave, we checked:
 
 ---
 
-
-## File Structure
-
-
-├── traffic_light.v    # FSM design module
-├── tb_traffic_light.v # Testbench for simulation
-├── dump.vcd # Simulation output (generated after run)
-└── README.md # Project documentation
-
-
 ## Inputs
 - *clk*: 50 MHz FPGA clock.  
 - *reset*: synchronous, active-high,
@@ -168,11 +158,11 @@ We use *Icarus Verilog* for simulation.
 ### Commands
 
 # Compile
-iverilog -o traffic_sim design.sv testbench.sv
+iverilog -o traffic_sim traffic_light.v tb_traffic_light.v
 
 # Run simulation
-vvp traffic_sim
+vvp sim
 
 # Open waveform 
-gtkwave waveform.vcd
+gtkwave dump.vcd
 
