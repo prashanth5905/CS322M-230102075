@@ -28,7 +28,7 @@ This repository contains the complete project, organized as follows:
 
 Below is the architecture diagram of the implemented 5-stage pipelined RISC-V core:
 
-<img src = './docs/ImplementedArchitecture.png' width = "600" />
+<img src="./docs/Pipelined_processor.png" width="1000">
 ---
 
 ## 📝 Notes
